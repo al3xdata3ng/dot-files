@@ -1,0 +1,50 @@
+# vim: filetype=gitconfig
+
+# Include user and credential info.
+[includeIf "gitdir/i:~/projects/personal/"]
+    path = ~/projects/personal/.gitconfig
+[includeIf "gitdir/i:~/projects/work/"]
+    path = ~/projects/work/.gitconfig
+
+[include]
+    path = "~/.config/git/themes"
+
+[core]
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
+[delta]
+    # features = catppuccin-macchiato
+    # syntax-theme = gruvbox-material-dark
+    syntax-theme = kanagawa
+    navigate = true
+[merge]
+    conflictstyle = zdiff3
+[diff]
+    colorMoved = default
+[alias]
+    browse = "! \
+        url=$(git remote get-url origin); \
+        case \"$url\" in \
+            git@*:*) \
+                domain=${url%%:*}; \
+                domain=${domain##git@}; \
+                path=${url#*:}; \
+                path=${path%.git}; \
+                url=\"https://$domain/$path\";; \
+            https://*) \
+                url=${url%.git};; \
+        esac; \
+        if [ -n \"$url\" ]; then \
+            echo \"Opening $url\"; \
+            open \"$url\"; \
+        else \
+            echo \"No URL found\"; >&2 \
+            exit 1; \
+        fi"
+[merge]
+  tool = nvim
+[mergetool "nvim"]
+  cmd = nvim -c "DiffviewOpen"
+[mergetool]
+  prompt = false
