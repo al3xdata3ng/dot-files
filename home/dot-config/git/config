@@ -48,3 +48,7 @@
   cmd = nvim -c "DiffviewOpen"
 [mergetool]
   prompt = false
+[user]
+  name = "Alexamdros Vitsas"
+  email = "al3xdata3ng@gmail.com"
+
