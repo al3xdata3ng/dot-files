@@ -60,7 +60,6 @@ keymap = [
   { on = "<C-r>", run = "toggle_all", desc = "Invert selection of all files" },
 
   # Visual mode
-
   { on = "v", run = "visual_mode", desc = "Enter visual mode (selection mode)" },
   { on = "V", run = "visual_mode --unset", desc = "Enter visual mode (unset mode)" },
 
@@ -400,7 +399,6 @@ keymap = [
     "visual",
     "move bol",
   ], desc = "Select from EOL to BOL" },
-
   { on = "<C-E>", run = [
     "move bol",
     "visual",
@@ -456,6 +454,7 @@ keymap = [
     "delete --cut",
     "move eol",
   ], desc = "Cut until EOL" },
+
   { on = "c", run = "delete --cut --insert", desc = "Cut selected characters, and enter insert mode" },
   { on = "C", run = [
     "delete --cut --insert",
@@ -542,6 +541,7 @@ keymap = [
 
 
 keymap = [
+
   { on = "<Esc>", run = "escape", desc = "Clear the filter, or hide the help" },
   { on = "<C-[>", run = "escape", desc = "Clear the filter, or hide the help" },
   { on = "<C-c>", run = "close", desc = "Hide the help" },
