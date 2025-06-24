@@ -51,4 +51,5 @@
 [user]
   name = "Alexandros Vitsas"
   email = "al3xdata3ng@gmail.com"
-
+[init]
+  defaultBranch = main
